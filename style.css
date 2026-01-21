@@ -1,0 +1,303 @@
+/* ===== GENERAL STYLES ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: black;
+}
+
+/* ===== SECTION PADDING ===== */
+.section {
+    padding: 70px 60px;
+}
+
+/* ===== NAVBAR STYLES ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    border-bottom: 1px solid #eee;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #ff5c8a;
+}
+
+/* ===== NAVBAR MENU ===== */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff5c8a;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 90vh;
+    background: url("https://images.unsplash.com/photo-1517841905240-472988babdf9") center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+.hero-text {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* ===== FILTER BUTTONS ===== */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid #ff5c8a;
+    color: #ff5c8a;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: 14px;
+}
+
+/* Active filter button style */
+.filter-btn.active {
+    background: #ff5c8a;
+    color: white;
+}
+
+/* Hover effect on filter buttons */
+.filter-btn:hover {
+    background: #ff5c8a;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.card {
+    border: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+    background: #f9f9f9;
+    
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+/* ===== PRODUCT IMAGE ===== */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    object-position: center;
+}
+
+/* ===== PRODUCT TITLE ===== */
+.card h4 {
+    margin: 15px 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* ===== PRODUCT PRICE ===== */
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5c8a;
+    margin-bottom: 15px;
+}
+
+
+.qty-btn:hover {
+    background: #ff5c8a;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+/* ===== ADD TO CART BUTTON ===== */
+.add-btn {
+    width: 100%;
+    background: #ff5c8a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.add-btn:hover {
+    background: #ff4575;
+    transform: scale(1.02);
+}
+
+.add-btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== HIDDEN PRODUCTS (FOR FILTERING) ===== */
+.card.hidden {
+    display: none;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+    background: #fafafa;
+    line-height: 1.7;
+}
+
+.about h2 {
+    color: #ff5c8a;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.about p {
+    font-size: 16px;
+    color: #555;
+    text-align: justify;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+    background: #ffffff;
+}
+
+.contact h2 {
+    color: #ff5c8a;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.contact-box {
+    display: flex;
+    gap: 60px;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 15px 0;
+    color: #555;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact form {
+    flex: 1;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    border-color: #ff5c8a;
+    box-shadow: 0 0 5px rgba(255, 92, 138, 0.3);
+}
+
+.contact button {
+    width: 100%;
+    background: #ff5c8a;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact button:hover {
+    background: #ff4575;
+}
+
+/* ===== CART MODAL ===== */
+
+.cart-popup {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.cart-popup.show {
+    opacity: 1;
+    visibility: visible;
+}

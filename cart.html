@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .navbar h2 {
+            color: #ff5c8a;
+            margin: 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* PAGE */
+        .section {
+            padding: 50px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 36px;
+            color: #ff5c8a;
+            margin-bottom: 30px;
+        }
+
+        /* CART */
+        .cart-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-header {
+            font-weight: bold;
+            border-bottom: 2px solid #ff5c8a;
+            padding-bottom: 10px;
+        }
+
+        .cart-controls button {
+            padding: 4px 10px;
+            background: #ff5c8a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .cart-total {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2>🛒 Your Cart</h2>
+    <a href="index.html">⬅ Back to Shop</a>
+</nav>
+
+<!-- CART SECTION -->
+<section class="section">
+    <h2 class="title">Shopping Cart</h2>
+
+    <!-- HEADER -->
+    <div class="cart-item cart-header">
+        <div>Product</div>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Subtotal</div>
+        <div>Action</div>
+    </div>
+
+    <!-- ITEMS -->
+    <div id="cartItems"></div>
+    <!-- TOTAL -->
+    <div id="cartTotal" class="cart-total"></div>
+    
+   
+
+</section>
+
+<script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartItemsDiv = document.getElementById("cartItems");
+    const cartTotalDiv = document.getElementById("cartTotal");
+
+    function renderCart() {
+        cartItemsDiv.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = "<p class='empty'>Your cart is empty.</p>";
+            cartTotalDiv.innerText = "";
+            return;
+        }
+
+        cart.forEach((item, index) => {
+            const subtotal = item.price * item.qty;
+            total += subtotal;
+
+            cartItemsDiv.innerHTML += `
+                <div class="cart-item">
+                    <div>${item.name}</div>
+                    <div>₹${item.price}</div>
+                    <div class="cart-controls">
+                        <button onclick="changeQty(${index}, -1)">−</button>
+                        ${item.qty}
+                        <button onclick="changeQty(${index}, 1)">+</button>
+                    </div>
+                    <div>₹${subtotal}</div>
+                    <div>
+                        <button class="remove-btn" onclick="removeItem(${index})">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+     cartTotalDiv.innerText = "Total Bill: ₹" + total;
+
+       let alltotal = total;
+
+if (total > 1000) {
+    allTotal = total - (total * 0.10);
+}
+
+cartTotalDiv.innerText =
+    "Total Bill: ₹" +allTotal;
+
+    }
+
+    function changeQty(index, change) {
+        cart[index].qty += change;
+        if (cart[index].qty <= 0) {
+            cart.splice(index, 1);
+        }
+        saveCart();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        saveCart();
+    }
+
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+    }
+
+    // Render on page load
+    renderCart();
+</script>
+
+<script src ="script.js"></script>
+
+</body>
+</html>

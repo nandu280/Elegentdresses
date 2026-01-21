@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elegant Dresses</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS (Hero text only) -->
+    <style>
+        .hero-text h1 {
+            font-size: 48px;
+        }
+        .hero-text p {
+            font-size: 18px;
+        }
+    </style>
+    
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>👗 Elegant Dresses</h2>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="cart.html">cart</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+    <div class="hero-text">
+        <h1>Grace in Every Dress</h1>
+        <p>Fashion that speaks elegance and confidence</p>
+
+        <!-- Inline CSS -->
+        <center><button style="background:#ff5c8a;color:white;padding:15px;border-radius: 30px;cursor:pointer;" onclick="goToShop()">
+           Shop Now
+        </button></center>
+    </div>
+</section>
+
+<section id="shop" class="section">
+    <center><h2 style="font-size: 42px;margin-bottom: 30px;font-weight: bold;">Our Collection</h2></center>
+    
+    
+    <!-- These buttons filter products by category -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+        <button class="filter-btn" onclick="filterProducts('casual')">Casual</button>
+        <button class="filter-btn" onclick="filterProducts('party')">Party Wear</button>
+        <button class="filter-btn" onclick="filterProducts('office')">Office Wear</button>
+        <button class="filter-btn" onclick="filterProducts('festive')">Festive</button>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="products">
+
+        <!-- Product 1: Floral Dress (Category: casual) -->
+        <div class="card" data-category="casual">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTR6bGfwWDEdwziZPsGl4NC0RZ-NApqQ6CN6ZnukcNg3Zkt0b6Ww5Wb_nK9MqtpvGTnKWbZlo5deRrAFqiER2E3tPe3uf3SstGafspnEd13" alt="Floral Dress">
+            <h4>Floral Summer Dress</h4>
+            <p class="price">₹1,499</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Floral Summer Dress',
+            1499
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 2: Evening Gown (Category: party) -->
+        <div class="card" data-category="party">
+            <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956" alt="Evening Gown">
+            <h4>Elegant Evening Gown</h4>
+            <p class="price">₹3,499</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Elegant Evening Gown',
+            3499
+        )">
+    Add to Cart
+</button>
+
+        </div>
+
+        <!-- Product 3: Casual Dress (Category: casual) -->
+        <div class="card" data-category="casual">
+            <img src="https://img.ltwebstatic.com/images3_pi/2021/03/30/1617081642436732f6e510228981ad0e0ba0ee3b13_thumbnail_720x.webp" alt="Casual Dress">
+            <h4>Casual Cotton Dress</h4>
+            <p class="price">₹1,099</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Casual Cotton Dress',
+            1099
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 4: Office Wear (Category: office) -->
+        <div class="card" data-category="office">
+            <img src="https://th.bing.com/th/id/OPAC.JA2o68lDCEfQnA474C474?w=592&h=550&o=5&dpr=1.3&pid=21.1" alt="Office Wear">
+            <h4>Office Wear Dress</h4>
+            <p class="price">₹1,899</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Office Wear Dress',
+            1899
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 5: Party Wear (Category: party) -->
+        <div class="card" data-category="party">
+            <img src="https://littleboxindia.com/cdn/shop/files/Square_Neck_Gingham_Maxi_Dress_In_Red.jpg?v=1743492058" alt="Party Wear">
+            <h4>Party Wear Dress</h4>
+            <p class="price">₹2,599</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Party Wear Dress',
+            2599
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 6: Maxi Dress (Category: party) -->
+        <div class="card" data-category="party">
+            <img src="https://bijouxblingstore.in/cdn/shop/files/4C2CAD47-C1AD-4329-BBD7-923C90094A46.jpg?v=1765997671&width=500" alt="Maxi Dress">
+            <h4>Maxi Dress</h4>
+            <p class="price">₹2,199</p>
+            <button class="add-btn"
+        onclick="addToCart(
+            'Maxi Dress',
+            2,199
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 7: Festive Wear (Category: festive) -->
+        <div class="card" data-category="festive">
+            <img src="https://www.joozowear.com/cdn/shop/files/DevyaniAnarkaliHandworksetInframe-_ankita.creates_holiready_explore_anarkali_anarkalisuits_ootd_fyp_anarkalisuit_trend_4.jpg?v=1749125465&width=900" alt="Festive Wear">
+            <h4>Festive Wear</h4>
+            <p class="price">₹1,200</p>
+           <button class="add-btn"
+        onclick="addToCart(
+            'Festive Wear',
+            1200
+        )">
+    Add to Cart
+</button>
+        </div>
+
+        <!-- Product 8: Printed Kurti (Category: casual) -->
+        <div class="card" data-category="casual">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2020/8/NE/WN/IE/15657119/embriodery-top-500x500.jpeg" alt="Kurti">
+            <h4>Printed Kurti</h4>
+            <p class="price">₹299</p>
+           <button class="add-btn"
+        onclick="addToCart(
+            'Printed Kurti',
+            299
+        )">
+    Add to Cart
+</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- About -->
+<section id="about" class="section about">
+    <h2>About Elegant Dresses</h2>
+
+    <p>
+        Welcome to Elegant Dresses, your premier destination for sophisticated
+        and stylish women's fashion. Since our establishment in 2015, we have been
+        committed to offering high-quality dresses that blend elegance,
+        comfort, and modern trends. Our journey began with a simple vision: to make
+        premium fashion accessible to every woman.
+    </p><br>
+
+    <p>
+        Our collections are carefully curated to suit every occasion — from
+        everyday casual wear to luxurious evening outfits. Each dress is
+        designed to enhance confidence and celebrate individuality. We work with
+        talented designers and skilled artisans who pour their creativity and passion
+        into every piece. Whether you're looking for a casual summer dress, professional
+        office wear, or a stunning party gown, we have something special for you.
+    </p><br>
+
+    <p>
+        At Elegant Dresses, customer satisfaction is at the heart of everything
+        we do. We focus on quality fabrics, perfect fits, and timeless designs
+        that make every woman feel special. Our team is dedicated to providing exceptional
+        customer service and ensuring that each shopping experience is memorable. We believe
+        that fashion should be inclusive and empowering for all women.
+    </p><br>
+
+    <p>
+        We are proud to serve thousands of happy customers across the country. Our commitment
+        to sustainability and ethical fashion practices ensures that our dresses are not only
+        beautiful but also responsibly made. We continuously innovate and bring fresh designs
+        to keep up with the latest fashion trends while maintaining our signature elegance.
+        Thank you for being part of the Elegant Dresses family!
+    </p><br>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+        <div class="contact-info">
+            <p><b>📍 Address:</b> 123 Fashion Street, New Delhi</p>
+            <p><b>📞 Phone:</b> +91 98765 43210</p>
+            <p><b>✉ Email:</b> info@elegantdresses.com</p>
+            <p><b>⏰ Hours:</b> Mon–Sat: 10AM – 8PM</p>
+        </div>
+    <form onsubmit="return validateFeedback()">
+    <input type="email" id="email" placeholder="Enter Email" required><br><br>
+    <input type="text" id="mobile" placeholder="Enter Mobile Number" required><br><br>
+    <textarea id="message" placeholder="Enter your message" required></textarea><br><br>
+    <button type="submit">Submit</button>
+</form>
+</section>
+
+<div id="cartPopup" class="cart-popup">
+    ✔ Added to cart
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
